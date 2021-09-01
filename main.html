@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+<link rel="stylesheet" href="./style.css">
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<body>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link" aria-current="page" href="#" onclick="showDda()">DDA</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" onclick="showBresenham()">Bresenham's Line</a>
+    </li>
+    <!-- <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+    </li> -->
+  </ul>
+  <div class="container" id="container1">
+    <h1>DDA line drawing Algorithm</h1>
+    <form action="/action_page.php">
+        <label for="x1">X1</label>
+        <input type="number" id="x1" name="x1" min="-100" max="100" value="0">
+        <label for="x2">X2</label>
+        <input type="number" id="x2" name="x2" min="-100" max="100" value="4">
+        <label for="y1">Y1</label>
+        <input type="number" id="y1" name="y1" min="-100" max="100" value="0">
+        <label for="y2">Y2</label>
+        <input type="number" id="y2" name="y2" min="-100" max="100" value="6">
+        <input type="button" value="Display Graph" onclick="display()">
+      </form>
+      <div class="data" id="data">
+      </div>
+      <div id="chart">
+        <div id="myPlot" style="width:100%;max-width:700px"></div>
+      </div>
+  </div>
+  <div class="container" id="container2">
+    <h1>Bresenham line drawing Algorithm</h1>
+    <form action="/action_page.php">
+        <label for="x1">X1</label>
+        <input type="number" id="x1B" name="x1" min="-100" max="100" value="20">
+        <label for="x2">X2</label>
+        <input type="number" id="x2B" name="x2" min="-100" max="100" value="30">
+        <label for="y1">Y1</label>
+        <input type="number" id="y1B" name="y1" min="-100" max="100" value="10">
+        <label for="y2">Y2</label>
+        <input type="number" id="y2B" name="y2" min="-100" max="100" value="18">
+        <input type="button" value="Display Graph" onclick="displayBresenham()">
+    </form>
+    <div class="data" id="data1">
+    </div>
+    <div id="chart1">
+      <div id="myPlot1" style="width:100%;max-width:700px"></div>
+    </div>
+  </div>
+<script src="./script.js">
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
