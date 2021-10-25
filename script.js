@@ -9,10 +9,10 @@ function showBresenham(){
 }
 function display(){
     let x1= 0, x2=4,y1 = 0,y2 = 6;
-    x1 = parseInt(document.getElementById('x1').value);
-    x2 = parseInt(document.getElementById('x2').value);
-    y1 = parseInt(document.getElementById('y1').value);
-    y2 = parseInt(document.getElementById('y2').value);
+    x1 = Number(document.getElementById('x1').value);
+    x2 = Number(document.getElementById('x2').value);
+    y1 = Number(document.getElementById('y1').value);
+    y2 = Number(document.getElementById('y2').value);
     let dx = x2-x1;
     let steps;
     let dy = y2 - y1;
@@ -42,7 +42,7 @@ function display(){
         console.log(x1);
         console.log(y1)
         i++;
-        
+
     }
     document.getElementById('table').innerHTML = tableHtml;
     console.log(xArr);
@@ -54,22 +54,22 @@ function display(){
       }];
     var layout = {
         xaxis: {range: [0, x2], title: "X-axis"},
-        yaxis: {range: [0, y2], title: "Y-axis"},  
+        yaxis: {range: [0, y2], title: "Y-axis"},
         title: "Graph"
     };
-    Plotly.newPlot("myPlot", data, layout);     
+    Plotly.newPlot("myPlot", data, layout);
 }
 
 function displayBresenham(){
     let x1= 20, x2=30,y1 = 10,y2 = 18;
     console.log('hello');
-    x1 = parseInt(document.getElementById('x1B').value);
-    x2 = parseInt(document.getElementById('x2B').value);
-    y1 = parseInt(document.getElementById('y1B').value);
-    y2 = parseInt(document.getElementById('y2B').value);
-    
-    let dx = parseInt(Math.abs(x2 - x1));
-    let dy = parseInt(Math.abs(y2 - y1));
+    x1 = Number(document.getElementById('x1B').value);
+    x2 = Number(document.getElementById('x2B').value);
+    y1 = Number(document.getElementById('y1B').value);
+    y2 = Number(document.getElementById('y2B').value);
+
+    let dx = Number(Math.abs(x2 - x1));
+    let dy = Number(Math.abs(y2 - y1));
     let xArr = new Array();
     let yArr = new Array();
     let pArr = new Array();
@@ -80,7 +80,7 @@ function displayBresenham(){
     '2dy - 2dx = 2*'+dy+' - 2*'+dx+'= '+ (2*dy -2*dx)+'<br>'+
     '2dy = 2*'+dy+'= '+ (2*dy)+'<br>'+
     'p0 = 2dy - dx ='+2* dy +'-'+dx+'='+(2*dy - dx)+'<br></p>'+
-    '<table class="table table-striped"><thead><td>k</td><td>pk</td><td>Xk+1</td><td>Yk+1</td></thead><tbody id ="table1"></tbday></table><br>Step 5: Plot<br>'; 
+    '<table class="table table-striped"><thead><td>k</td><td>pk</td><td>Xk+1</td><td>Yk+1</td></thead><tbody id ="table1"></tbday></table><br>Step 5: Plot<br>';
     let tableHtml ='';
     while(i < step){
         if(p < 0){
@@ -95,7 +95,7 @@ function displayBresenham(){
             xArr.push(x1);
             yArr.push(y1);
         }
-        
+
         tableHtml +='<tr><td>'+i+'</td><td>'+pActual+'</td><td>'+x1+'</td><td>'+y1+'</td>';
         pActual = p;
         i++;
@@ -104,9 +104,9 @@ function displayBresenham(){
     console.log(xArr);
     console.log(yArr);
     console.log(pArr);
-   
-    
-   
+
+
+
 
     var data = [{
         x: xArr,
@@ -115,9 +115,9 @@ function displayBresenham(){
       }];
     var layout = {
         xaxis: {range: [0, x2], title: "X-axis"},
-        yaxis: {range: [0, y2], title: "Y-axis"},  
+        yaxis: {range: [0, y2], title: "Y-axis"},
         title: "Graph"
     };
-    Plotly.newPlot("myPlot1", data, layout); 
+    Plotly.newPlot("myPlot1", data, layout);
 
 }
