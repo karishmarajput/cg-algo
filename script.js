@@ -1,30 +1,33 @@
-
-function showDda(){
+function showDda() {
     document.getElementById('container1').style.display = "block";
     document.getElementById('container2').style.display ="none";
 }
-function showBresenham(){
+
+function showBresenham() {
     document.getElementById('container2').style.display = "block";
     document.getElementById('container1').style.display ="none";
 }
-function display(){
-    let x1= 0, x2=4,y1 = 0,y2 = 6;
+
+function display() {
+    let x1 = 0, x2 = 4, y1 = 0, y2 = 6;
     x1 = Number(document.getElementById('x1').value);
     x2 = Number(document.getElementById('x2').value);
     y1 = Number(document.getElementById('y1').value);
     y2 = Number(document.getElementById('y2').value);
-    let dx = x2-x1;
-    let steps;
+
+    let dx = x2 - x1;
     let dy = y2 - y1;
+
     let xArr = new Array();
     let yArr = new Array();
-    if(dx < 0)dx *= -1;
-    if(dy < 0)dy *= -1;
-    if(dx >dy){
-        steps = dx;
-    }else{
-        steps = dy;
-    }
+
+    if (dx < 0)
+        dx *= -1;
+    if (dy < 0)
+        dy *= -1;
+
+    const steps = Math.max(dx, dy);
+
     let xin = dx/steps;
     let yin = dy/steps;
     document.getElementById('data').innerHTML='<p> Step 1:<br>dx = |x2 - x1|= |'+x2+'-'+x1+'| = '+dx+'<br>dy = |y2 - y1|= |'+y2+'-'+y1+'| = '+dy+'<br>'+
@@ -60,9 +63,9 @@ function display(){
     Plotly.newPlot("myPlot", data, layout);
 }
 
-function displayBresenham(){
-    let x1= 20, x2=30,y1 = 10,y2 = 18;
-    console.log('hello');
+function displayBresenham() {
+    let x1 = 20, x2 = 30, y1 = 10, y2 = 18;
+
     x1 = Number(document.getElementById('x1B').value);
     x2 = Number(document.getElementById('x2B').value);
     y1 = Number(document.getElementById('y1B').value);
@@ -70,27 +73,30 @@ function displayBresenham(){
 
     let dx = Number(Math.abs(x2 - x1));
     let dy = Number(Math.abs(y2 - y1));
+
     let xArr = new Array();
     let yArr = new Array();
     let pArr = new Array();
-    let p = 2* dy -dx;
+
+    let p = 2 * dy -dx;
     pArr.push(p);
-    let step = dx,i = 0,pActual = p;
+    let step = dx, i = 0, pActual = p;
+
     document.getElementById('data1').innerHTML = '<p>Step 1:<br> dx = '+ dx+'<br>dy = '+ dy+'<br>'+
     '2dy - 2dx = 2*'+dy+' - 2*'+dx+'= '+ (2*dy -2*dx)+'<br>'+
     '2dy = 2*'+dy+'= '+ (2*dy)+'<br>'+
     'p0 = 2dy - dx ='+2* dy +'-'+dx+'='+(2*dy - dx)+'<br></p>'+
     '<table class="table table-striped"><thead><td>k</td><td>pk</td><td>Xk+1</td><td>Yk+1</td></thead><tbody id ="table1"></tbday></table><br>Step 5: Plot<br>';
     let tableHtml ='';
-    while(i < step){
-        if(p < 0){
+    while (i < step) {
+        if (p < 0) {
             x1 +=1;
             p += 2*dy;
             xArr.push(x1);
             yArr.push(y1);
-        }else{
-            x1 +=1;
-            y1 +=1;
+        } else {
+            x1 += 1;
+            y1 += 1;
             p += (2*dy - 2*dx);
             xArr.push(x1);
             yArr.push(y1);
@@ -100,13 +106,11 @@ function displayBresenham(){
         pActual = p;
         i++;
     }
+
     document.getElementById('table1').innerHTML = tableHtml;
     console.log(xArr);
     console.log(yArr);
     console.log(pArr);
-
-
-
 
     var data = [{
         x: xArr,
@@ -119,5 +123,4 @@ function displayBresenham(){
         title: "Graph"
     };
     Plotly.newPlot("myPlot1", data, layout);
-
 }
