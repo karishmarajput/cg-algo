@@ -9,14 +9,13 @@ function showBresenham() {
 }
 
 function display() {
-    let x1 = 0, x2 = 4, y1 = 0, y2 = 6;
-    x1 = Number(document.getElementById('x1').value);
-    x2 = Number(document.getElementById('x2').value);
-    y1 = Number(document.getElementById('y1').value);
-    y2 = Number(document.getElementById('y2').value);
+    const x1 = Number(document.getElementById('x1').value),
+          x2 = Number(document.getElementById('x2').value),
+          y1 = Number(document.getElementById('y1').value),
+          y2 = Number(document.getElementById('y2').value);
 
-    let dx = x2 - x1;
-    let dy = y2 - y1;
+    const dx = x2 - x1;
+    const dy = y2 - y1;
 
     let xArr = new Array();
     let yArr = new Array();
@@ -48,8 +47,7 @@ function display() {
 
     }
     document.getElementById('table').innerHTML = tableHtml;
-    console.log(xArr);
-    console.log(yArr);
+    
     var data = [{
         x: xArr,
         y: yArr,
@@ -64,15 +62,13 @@ function display() {
 }
 
 function displayBresenham() {
-    let x1 = 20, x2 = 30, y1 = 10, y2 = 18;
+    const x1 = Number(document.getElementById('x1B').value),
+          x2 = Number(document.getElementById('x2B').value),
+          y1 = Number(document.getElementById('y1B').value),
+          y2 = Number(document.getElementById('y2B').value);
 
-    x1 = Number(document.getElementById('x1B').value);
-    x2 = Number(document.getElementById('x2B').value);
-    y1 = Number(document.getElementById('y1B').value);
-    y2 = Number(document.getElementById('y2B').value);
-
-    let dx = Number(Math.abs(x2 - x1));
-    let dy = Number(Math.abs(y2 - y1));
+    const dx = Math.abs(x2 - x1);
+    const dy = Math.abs(y2 - y1);
 
     let xArr = new Array();
     let yArr = new Array();
