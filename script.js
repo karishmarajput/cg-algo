@@ -16,7 +16,7 @@ function display() {
 
     const dx = Math.abs(x2 - x1);
     const dy = Math.abs(y2 - y1);
-
+  
     let xArr = new Array();
     let yArr = new Array();
 
