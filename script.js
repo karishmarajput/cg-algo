@@ -14,16 +14,11 @@ function display() {
           y1 = Number(document.getElementById('y1').value),
           y2 = Number(document.getElementById('y2').value);
 
-    const dx = x2 - x1;
-    const dy = y2 - y1;
+    const dx = Math.abs(x2 - x1);
+    const dy = Math.abs(y2 - y1);
 
     let xArr = new Array();
     let yArr = new Array();
-
-    if (dx < 0)
-        dx *= -1;
-    if (dy < 0)
-        dy *= -1;
 
     const steps = Math.max(dx, dy);
 
@@ -85,18 +80,14 @@ function displayBresenham() {
     '<table class="table table-striped"><thead><td>k</td><td>pk</td><td>Xk+1</td><td>Yk+1</td></thead><tbody id ="table1"></tbday></table><br>Step 5: Plot<br>';
     let tableHtml ='';
     while (i < step) {
-        if (p < 0) {
-            x1 +=1;
-            p += 2*dy;
-            xArr.push(x1);
-            yArr.push(y1);
-        } else {
-            x1 += 1;
+        x1 +=1;
+        p += 2*dy;
+        if (p >= 0) {
             y1 += 1;
-            p += (2*dy - 2*dx);
-            xArr.push(x1);
-            yArr.push(y1);
-        }
+            p -= 2*dx;
+        } 
+        xArr.push(x1);
+        yArr.push(y1);
 
         tableHtml +='<tr><td>'+i+'</td><td>'+pActual+'</td><td>'+x1+'</td><td>'+y1+'</td>';
         pActual = p;
