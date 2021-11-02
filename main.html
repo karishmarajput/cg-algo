@@ -11,12 +11,12 @@
     <li class="nav-item">
       <a class="nav-link" href="#" onclick="showBresenham()">Bresenham's Line</a>
     </li>
-    <!-- <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
     <li class="nav-item">
+      <a class="nav-link" href="#" onclick="showMpCircle()">Midpoint Circle</a>
+      </li>
+    <!-- <li class="nav-item">
       <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-    </li> -->
+    </li> --> 
   </ul>
   <div class="container" id="container1">
     <h1>DDA line drawing Algorithm</h1>
@@ -54,6 +54,41 @@
     </div>
     <div id="chart1">
       <div id="myPlot1" style="width:100%;max-width:700px"></div>
+    </div>
+  </div>
+  <div class="container" id="container3">
+    <h1>Midpoint Circle Algorithm</h1>
+    <form action="/action_page.php">
+      <label >Centre:</label>
+        <label for="x1">X0</label>
+        <input type="number" id="x0c" name="x1" min="-100" max="100" value="0">
+        <label for="x2">Y0</label>
+        <input type="number" id="y0c" name="x2" min="-100" max="100" value="0">
+        <label for="radius">Radius</label>
+        <input type="number" id="radius" name="y1" min="-100" max="100" value="10">
+        <input type="button" value="Display Graph" onclick="displayMpCircle()">
+    </form>
+    <div class="data" id="data2">
+    </div>
+    <div class="coordinateCircle" id="coordinateCircle">
+      <table class="table table-striped">
+        <thead>
+          <td>1st Qctand<br>(x,y)</td>
+          <td>2nd Qctand<br>(y,x)</td>
+          <td>3rd Qctand<br>(y,-x)</td>
+          <td>4th Qctand<br>(x,-y)</td>
+          <td>5th Qctand<br>(-x,-y)</td>
+          <td>6th Qctand<br>(-y,-x)</td>
+          <td>7th Qctand<br>(-y,x)</td>
+          <td>8th Qctand<br>(-x,y)</td>
+        </thead>
+        <tbody id ="tableCircle">
+        </tbday>
+      </table>
+      <br>Step 5: Plot<br>
+    </div>
+    <div id="chart1">
+      <div id="myPlot2" style="width:100%;max-width:700px"></div>
     </div>
   </div>
 <script src="./script.js">
