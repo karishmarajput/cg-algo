@@ -3,11 +3,13 @@ function showDda(){
     document.getElementById('container1').style.display = "block";
     document.getElementById('container2').style.display ="none";
     document.getElementById('container3').style.display ="none";
+    document.getElementById('container4').style.display ="none";
 }
 function showBresenham(){
     document.getElementById('container2').style.display = "block";
     document.getElementById('container1').style.display ="none";
     document.getElementById('container3').style.display ="none";
+    document.getElementById('container4').style.display ="none";
 }
 function display(){
     let x1= 0, x2=4,y1 = 0,y2 = 6;
@@ -116,6 +118,7 @@ function showMpCircle(){
     document.getElementById('container3').style.display = "block";
     document.getElementById('container2').style.display ="none";
     document.getElementById('container1').style.display ="none";
+    document.getElementById('container4').style.display ="none";
 }
 function displayMpCircle(){
     document.getElementById('coordinateCircle').style.display = "block";
@@ -164,4 +167,42 @@ function displayMpCircle(){
         title: "1st Qctand"
     };
     Plotly.newPlot("myPlot2", data, layout); 
+}
+
+function showBezierCurve(){
+    document.getElementById('container3').style.display = "none";
+    document.getElementById('container2').style.display ="none";
+    document.getElementById('container1').style.display ="none";
+    document.getElementById('container4').style.display ="block";
+}
+function displayBezierCurve(){
+    const x0 = parseInt(document.getElementById('x0d').value),
+    y0 = parseInt(document.getElementById('y0d').value),
+    x1 = parseInt(document.getElementById('x1d').value),
+    y1 = parseInt(document.getElementById('y1d').value),
+    x2 = parseInt(document.getElementById('x2d').value),
+    y2 = parseInt(document.getElementById('y2d').value),
+    x3 = parseInt(document.getElementById('x3d').value),
+    y3 = parseInt(document.getElementById('y3d').value);
+    console.log(x0);
+    let xArr = new Array();
+    let yArr = new Array();
+    
+    for(let t = 0; t <= 1.0; t =t + 0.001){
+        put_x = Math.pow(1-t,3)*x0 + 3*t* Math.pow(1-t,2)*x1 + 3*t*t*(1-t)*x2 + Math.pow(t,3)*x3; 
+        put_y =  Math.pow(1-t,3)*y0 + 3*t*Math.pow(1-t,2)*y1 + 3*t*t*(1-t)*y2 + Math.pow(t,3)*y3;
+        xArr.push(put_x);
+        yArr.push(put_y);
+    }
+    console.log(xArr);
+    var data = [{
+        x: xArr,
+        y: yArr,
+        mode:"points"
+    }];
+    var layout = {
+        xaxis: {range: [0, 500], title: "X-axis"},
+        yaxis: {range: [0, 500], title: "Y-axis"},  
+    };
+    Plotly.newPlot("myPlot3", data, layout);
 }
